@@ -25,7 +25,7 @@ export const App = () => {
   };
 
   return (
-    <div> 
+    <div className='demo-section'> 
       <Card>
         <RecordWebcam
           options={OPTIONS}
