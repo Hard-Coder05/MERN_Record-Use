@@ -2,6 +2,8 @@ import React from "react";
 import { RecordWebcam, useRecordWebcam, CAMERA_STATUS} from "react-record-webcam";
 import type { WebcamRenderProps, RecordWebcamOptions, RecordWebcamHook} from "react-record-webcam";
 import "./Dashboard.css";
+import Button from "./UI/Button";
+import Card from "./UI/Card";
 
 const OPTIONS: RecordWebcamOptions = {
   filename: "test-filename",
@@ -24,7 +26,7 @@ export const App = () => {
 
   return (
     <div> 
-      <div className="demo-section">
+      <Card>
         <RecordWebcam
           options={OPTIONS}
           render={(props: WebcamRenderProps) => {
@@ -44,29 +46,29 @@ export const App = () => {
                 <h1>Component render prop demo</h1>
                 <p>Camera status: {props.status}</p>
                 <div>
-                  <button disabled={!showOpenCamera} onClick={props.openCamera}>
+                  <Button disabled={!showOpenCamera} onClick={props.openCamera}>
                     Open camera
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     disabled={showOpenCamera || showRetake || !showCloseCamera}
                     onClick={props.closeCamera}
                   >
                     Close camera
-                  </button>
+                  </Button>
 
-                  <button disabled={!showStart} onClick={props.start}>
+                  <Button disabled={!showStart} onClick={props.start}>
                     Start recording
-                  </button>
-                  <button disabled={!showStop} onClick={props.stop}>
+                  </Button>
+                  <Button disabled={!showStop} onClick={props.stop}>
                     Stop recording
-                  </button>
-                  <button disabled={!showRetake} onClick={props.retake}>
+                  </Button>
+                  <Button disabled={!showRetake} onClick={props.retake}>
                     Retake
-                  </button>
-                  <button disabled={!showDownload} onClick={props.download}>
+                  </Button>
+                  <Button disabled={!showDownload} onClick={props.download}>
                     Download
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     disabled={!showDownload}
                     onClick={async () => {
                       const blob = await props.getRecording();
@@ -74,13 +76,13 @@ export const App = () => {
                     }}
                   >
                     Get recording blob
-                  </button>
+                  </Button>
                 </div>
               </div>
             );
           }}
         />
-      </div>
+      </Card>
     </div>
   );
 };
