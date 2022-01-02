@@ -7,6 +7,7 @@ return (
 	className={styles.button}
 	type={props.type||'button'}
 	onClick={props.onClick}
+	disabled={props.disabled}
 	>
 		{props.children}
 	</button>

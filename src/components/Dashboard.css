@@ -1,21 +1,30 @@
-  html {
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');  
+ 
+ html {
 	font-family: sans-serif;
 	background: #1f1f1f;
   }
   
   body {
 	margin: 0;
+	place-content: center;
+	display: grid;
   }
-  .demo-section {
-	padding-bottom: 2rem;
-	border-bottom: 2px solid;
-  }
-  
-  .demo-section:last-child {
-	border: none;
-  }
-  
+
+  .wrapper-div{
+	text-align: center;
+  width: fit-content;
+  margin: auto;
+  padding: 2rem; 
+}  
+
+  h1 {
+	font-size: 5vw; 
+	color: black;
+	font-family: 'Red Hat Display'; 
+  }  
+
   video {
-	width: 90%;
-	height: auto;
+	width: 50%;
+	height: 50%;
   }

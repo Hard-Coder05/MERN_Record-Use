@@ -16,8 +16,8 @@ export const App = () => {
   const recordWebcam: RecordWebcamHook = useRecordWebcam(OPTIONS);
 
   const getRecordingFileHooks = async () => {
-    const blob = await recordWebcam.getRecording();
-    console.log({ blob });
+    const blob = await recordWebcam.getRecording(); 
+    console.log({ blob }); 
   };
 
   const getRecordingFileRenderProp = async (blob: Blob | undefined) => {
@@ -25,17 +25,13 @@ export const App = () => {
   };
 
   return (
-    <div className='demo-section'> 
+    <div className='wrapper-div'> 
       <Card>
         <RecordWebcam
-          options={OPTIONS}
+          options={OPTIONS} 
           render={(props: WebcamRenderProps) => {
-            const showOpenCamera =
-              props.status !== CAMERA_STATUS.OPEN &&
-              props.status !== CAMERA_STATUS.RECORDING &&
-              props.status !== CAMERA_STATUS.PREVIEW;
-            const showCloseCamera =
-              props.status === CAMERA_STATUS.OPEN || CAMERA_STATUS.RECORDING;
+            const showOpenCamera = props.status !== CAMERA_STATUS.OPEN && props.status !== CAMERA_STATUS.RECORDING && props.status !== CAMERA_STATUS.PREVIEW;
+            const showCloseCamera = props.status === CAMERA_STATUS.OPEN || CAMERA_STATUS.RECORDING;
             const showStart = props.status === CAMERA_STATUS.OPEN;
             const showStop = props.status === CAMERA_STATUS.RECORDING;
             const showRetake = props.status === CAMERA_STATUS.PREVIEW;
@@ -43,7 +39,7 @@ export const App = () => {
 
             return (
               <div>
-                <h1>Component render prop demo</h1>
+                <h1><span>Record & Use</span></h1>
                 <p>Camera status: {props.status}</p>
                 <div>
                   <Button disabled={!showOpenCamera} onClick={props.openCamera}>
@@ -70,9 +66,8 @@ export const App = () => {
                   </Button>
                   <Button
                     disabled={!showDownload}
-                    onClick={async () => {
-                      const blob = await props.getRecording();
-                      getRecordingFileRenderProp(blob);
+                    onClick={async () => { 
+                      getRecordingFileHooks( );
                     }}
                   >
                     Get recording blob
