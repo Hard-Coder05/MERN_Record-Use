@@ -75,14 +75,14 @@ function startRecording(thisButton, otherButton) {
         const downloadButton = document.createElement('a');
         downloadButton.download = 'Recorded-Media';
         downloadButton.href = recordedMediaURL;
-        downloadButton.innerText = 'Download it!';
+        downloadButton.innerText = 'Download!';
         downloadButton.className = 'button';
 
         const embedButton = document.createElement('button');
         embedButton.id = 'btns';
-        embedButton.innerText = 'Embed!';
-        embedButton.classList.add('btns');
-        embedButton.className = 'button';
+        embedButton.innerText = 'Code Snippet!';
+        embedButton.classList.add('btns'); 
+		embedButton.classList.add('button'); 
         embedButton.setAttribute('videourl', `${recordedMediaURL}`);
 
         downloadButton.onclick = () => {
