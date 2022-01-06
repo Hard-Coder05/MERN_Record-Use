@@ -1,14 +1,14 @@
 {
+  "author": "Siddharth Mishra",
   "name": "contxt-assignment",
-  "version": "2.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "App to record video and use recorded video to embed it any HTML page",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "Siddharth",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
