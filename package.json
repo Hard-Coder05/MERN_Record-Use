@@ -1,5 +1,5 @@
 {
-  "name": "contxt",
+  "name": "contxt-assignment",
   "version": "2.0.0",
   "description": "",
   "main": "app.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "Rohan",
+  "author": "Siddharth",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

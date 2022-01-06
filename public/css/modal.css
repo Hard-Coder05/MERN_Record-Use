@@ -2,12 +2,28 @@
   color: black !important;
   font-family: monospace !important;
   background-color: rgb(209, 207, 207);
-}
-.Card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-}
+} 
+
+.button {
+	font: inherit;
+	border: 5px solid #4f005f;
+	box-shadow: 0 2px 8px rgba(0, 0,0, 0.26);
+	background: #4f005f;
+	font-size: large;
+	color: white;
+	padding: 0.25rem 1rem;
+	cursor: pointer; 
+  }
+  
+  .button:hover,
+  .button:active {
+	background: #741188;
+	border-color: #741188;
+  }
+  
+  .button:focus {
+	outline: none;
+  }
 
 .Modal {
   position: relative;

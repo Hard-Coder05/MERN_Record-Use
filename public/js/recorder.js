@@ -1,20 +1,18 @@
+const webCamContainer = document.getElementById('web-cam-container');
 
-const webCamContainer = document.getElementById("web-cam-container");
-
-let selectedMedia = "vid";
+let selectedMedia = 'vid';
 
 // This array stores the recorded media data
 let chunks = [];
 // JS embed code
 let embededCode = null;
 
-document.getElementById("vid-recorder").style.display = "block";
+document.getElementById('vid-recorder').style.display = 'block';
 
 const videoMediaConstraints = {
   audio: true,
   video: true,
 };
-
 
 // function to return embed code with URL
 function embedCode(URL) {
@@ -41,12 +39,11 @@ function embedCode(URL) {
   return code;
 }
 
-
 function startRecording(thisButton, otherButton) {
   // Access the camera and microphone
   navigator.mediaDevices
     .getUserMedia(
-      selectedMedia === "vid" ? videoMediaConstraints : audioMediaConstraints
+      selectedMedia === 'vid' ? videoMediaConstraints : audioMediaConstraints
     )
     .then((mediaStream) => {
       // Create a new MediaRecorder instance
@@ -62,11 +59,11 @@ function startRecording(thisButton, otherButton) {
 
       mediaRecorder.onstop = () => {
         const blob = new Blob(chunks, {
-          type: selectedMedia === "vid" ? "video/mp4" : "audio/mpeg",
+          type: selectedMedia === 'vid' ? 'video/mp4' : 'audio/mpeg',
         });
         chunks = [];
         const recordedMedia = document.createElement(
-          selectedMedia === "vid" ? "video" : "audio"
+          selectedMedia === 'vid' ? 'video' : 'audio'
         );
         recordedMedia.controls = true;
 
@@ -75,16 +72,18 @@ function startRecording(thisButton, otherButton) {
 
         //----------Buttons----------------
 
-        const downloadButton = document.createElement("a");
-        downloadButton.download = "Recorded-Media";
+        const downloadButton = document.createElement('a');
+        downloadButton.download = 'Recorded-Media';
         downloadButton.href = recordedMediaURL;
-        downloadButton.innerText = "Download it!";
+        downloadButton.innerText = 'Download it!';
+        downloadButton.className = 'button';
 
-        const embedButton = document.createElement("button");
-        embedButton.id = "btns";
-        embedButton.innerText = "Embed!";
-        embedButton.classList.add("btns");
-        embedButton.setAttribute("videourl", `${recordedMediaURL}`);
+        const embedButton = document.createElement('button');
+        embedButton.id = 'btns';
+        embedButton.innerText = 'Embed!';
+        embedButton.classList.add('btns');
+        embedButton.className = 'button';
+        embedButton.setAttribute('videourl', `${recordedMediaURL}`);
 
         downloadButton.onclick = () => {
           URL.revokeObjectURL(recordedMedia);
@@ -92,40 +91,39 @@ function startRecording(thisButton, otherButton) {
           var xhr = new XMLHttpRequest();
           xhr.onload = function (e) {
             if (this.readyState === 4) {
-              console.log("Server returned: ", e.target.responseText);
+              console.log('Server returned: ', e.target.responseText);
             }
           };
           var fd = new FormData();
-          
-          fd.append("video_data", blob, "filename.mp4");
-          xhr.open("POST", "/save-video", true);
+
+          fd.append('video_data', blob, 'filename.mp4');
+          xhr.open('POST', '/save-video', true);
           xhr.send(fd);
         };
 
+        document.getElementById('output').append(recordedMedia, downloadButton);
+        document.getElementById('output').append(embedButton);
 
-        document.getElementById("output").append(recordedMedia, downloadButton);
-        document.getElementById("output").append(embedButton);
-
-        document.querySelectorAll(".btns").forEach((item) => {
+        document.querySelectorAll('.btns').forEach((item) => {
           item.onclick = () => {
-            const videoURL = item.getAttribute("videourl");
+            const videoURL = item.getAttribute('videourl');
             embed(videoURL);
           };
         });
       };
 
-      if (selectedMedia === "vid") {
+      if (selectedMedia === 'vid') {
         webCamContainer.srcObject = mediaStream;
       }
 
       document.getElementById(`${selectedMedia}-record-status`).innerText =
-        "Recording";
+        'Recording';
 
       thisButton.disabled = true;
       otherButton.disabled = false;
     })
     .catch((error) => {
-    console.log(error);
+      console.log(error);
     });
 }
 
@@ -137,7 +135,8 @@ function stopRecording(thisButton, otherButton) {
     track.stop();
   });
 
-  document.getElementById(`${selectedMedia}-record-status`).innerText ="Recording done!";
+  document.getElementById(`${selectedMedia}-record-status`).innerText =
+    'Recording done!';
   thisButton.disabled = true;
   otherButton.disabled = false;
 }
@@ -145,38 +144,37 @@ function stopRecording(thisButton, otherButton) {
 // -------Video-List-------------
 
 function embed(url) {
-
-  // set the embed code 
-  const content = document.getElementById("code");
+  // set the embed code
+  const content = document.getElementById('code');
   content.innerText = embedCode(url);
 
   // Modal logic
-  const addMovieModal = document.querySelector(".add-Modal");
-  const backdrop = document.querySelector(".backdrop");
-  const cancelAddMovieButton = addMovieModal.querySelector(".btn--passive");
+  const addMovieModal = document.querySelector('.add-Modal');
+  const backdrop = document.querySelector('.backdrop');
+  const cancelAddMovieButton = addMovieModal.querySelector('.btn--passive');
 
   const toggleBackdrop = () => {
-    backdrop.classList.toggle("Visible");
+    backdrop.classList.toggle('Visible');
   };
 
   const toggleMovieModal = () => {
-    addMovieModal.style.display = "block";
-    backdrop.style.display = "block";
+    addMovieModal.style.display = 'block';
+    backdrop.style.display = 'block';
   };
 
   const cancelAddMovieHandler = () => {
-    addMovieModal.style.display = "none";
-    backdrop.style.display = "none";
+    addMovieModal.style.display = 'none';
+    backdrop.style.display = 'none';
   };
 
   const backdropClickHandler = () => {
-    addMovieModal.style.display = "none";
-    backdrop.style.display = "none";
+    addMovieModal.style.display = 'none';
+    backdrop.style.display = 'none';
   };
 
   toggleMovieModal();
 
-  backdrop.addEventListener("click", backdropClickHandler);
+  backdrop.addEventListener('click', backdropClickHandler);
 
-  cancelAddMovieButton.addEventListener("click", cancelAddMovieHandler);
+  cancelAddMovieButton.addEventListener('click', cancelAddMovieHandler);
 }

@@ -27,7 +27,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // EJS
-app.use("/public", express.static("public"));
+app.use("/public", express.static("public")); 
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 

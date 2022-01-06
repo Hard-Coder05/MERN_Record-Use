@@ -1,52 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+
+html {
+  font-family: sans-serif;
+  background: #1f1f1f;
+}
+
+body {
+  margin: 0;
+  place-content: center;
+  display: grid;
+}
+
+.wrapper-div {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 2rem; 
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0,0, 0.26);
+	border-radius: 10px;
+}
+
+h1 {
+  font-size: 5vw;
+  color: black;
+  font-family: 'Red Hat Display';
+}
+label{  
+    color: #4f005f;  
+    font-size: 17px; 
+	text-align: left; 
+} 
+input[type=email], input[type=name], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+  }
 .record {
-	text-align: center;
-	color: green;
-	font-size: 1.2em;
+  text-align: center;
+  color: green;
+  font-size: 1.2em;
 }
 
 .display-none {
-	display: none;
+  display: none;
 }
 
 .recording {
-	color: red;
-	background-color: rgb(241 211 211);
-	padding: 5px;
-	margin: 6px auto;
-	width: fit-content;
+  color: red;
+  background-color: rgb(241 211 211);
+  padding: 5px;
+  margin: 6px auto;
+  width: fit-content;
 }
-.nav{
-	display: flex;
-	justify-content: space-between;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
 }
 
-
-
-.btns{
-	margin-left: 10px;
-	
-	
+.btns {
+  margin-left: 10px;
 }
 button#btns {
-	border-radius: 2px;
-	background-color: green;
-	color: white;
+  border-radius: 2px;
+  background-color: green;
+  color: white;
 }
 
 video {
-	background-color: black;
-	display: block;
-	margin: 6px auto;
-	width: 420px;
-	height: 240px;
+  background-color: black;
+  display: block;
+  margin: 6px auto;
+  width: 420px;
+  height: 240px;
 }
 
 audio {
-	display: block;
-	margin: 6px auto;
+  display: block;
+  margin: 6px auto;
 }
 
 a {
-	color: green;
+  color: green;
 }
-
