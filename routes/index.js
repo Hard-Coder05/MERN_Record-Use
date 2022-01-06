@@ -12,7 +12,6 @@ router.get('/dashboard', ensureAuthenticated, async (req, res) => {
   try {
     res.render('dashboard', {
       user: req.user,
-      //  videos: videos
     });
   } catch (error) {
     console.log(error);
