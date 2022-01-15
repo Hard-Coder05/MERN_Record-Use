@@ -17,21 +17,31 @@ const videoMediaConstraints = {
 // function to return embed code with URL
 function embedCode(URL) {
   const code = `  <!-- Start of  Code -->
- <script>
-  
+  <script>
   window.onload = () => {
-     !function () {
-      var t = window.contxt = {};
-      t.load = function () {
-        let o = document.createElement('video');o.id = "xfg";o.style = "position: fixed; right: 15px; bottom: 50px; border-radius: 50%; width:150px; height: 150px; z-index: 1000000; border: 2px solid black; background-color: black";o.autoplay="true";o.muted="true"; o.setAttribute("name", "media");o.setAttribute("loop", "");o.addEventListener('click', () => {if (xfg.muted)xfg.muted = false;else xfg.muted = true});
+	 !function () {
+	  var t = window.contxt = {};
+	  t.load = function () {
+		let ele = document.createElement('video');
+		ele.id = "xfg";
+		ele.style = "position: fixed; right: 15px; bottom: 50px; border-radius: 50%; width:150px; height: 150px; z-index: 1000000; border: 2px solid black; background-color: black";
+		ele.autoplay="true";
+		ele.muted="true";
+		ele.setAttribute("name", "media");
+		ele.setAttribute("loop", "");
+		ele.addEventListener('click', () => {if (xfg.muted)xfg.muted = false;else xfg.muted = true});
 
-        let s = document.createElement('source');s.src = "${URL}";s.type = "video/mp4";o.appendChild(s);document.body.appendChild(o);
-        console.log('created')
-      }
-    }();
-    contxt.load();
+		let s = document.createElement('source');
+		s.src = "${URL}";
+		s.type = "video/mp4";
+		ele.appendChild(s);
+		document.body.appendChild(ele);
+		console.log('created')
+	  }
+	}();
+	contxt.load();
   }
-<\/script>
+  <\/script> 
 
   <!-- End of  Code -->
               `;
@@ -81,8 +91,8 @@ function startRecording(thisButton, otherButton) {
         const embedButton = document.createElement('button');
         embedButton.id = 'btns';
         embedButton.innerText = 'Code Snippet!';
-        embedButton.classList.add('btns'); 
-		embedButton.classList.add('button'); 
+        embedButton.classList.add('btns');
+        embedButton.classList.add('button');
         embedButton.setAttribute('videourl', `${recordedMediaURL}`);
 
         downloadButton.onclick = () => {

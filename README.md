@@ -4,9 +4,7 @@ Create a Widget for a website that plays a recorded video (design attached, refe
 
 Create a dashboard with log in to first create an account, record the video, save the video. The dashboard shall generate javascript code for each video widget such that the code can be embedded into any website.
 
-When this video widget is integrated into a website, this video will autoplay and play on mute. You should provide mute/unmute controls on the video.
-
-The below is how the widget will look on a website. [Ignore the Invest now button, you can replace that with a mute/unmute button]
+When this video widget is integrated into a website, this video will autoplay and play on mute. You should provide mute/unmute controls on the video. 
 
 ### Usage
 
@@ -24,6 +22,9 @@ $ npm run dev
 # Visit http://localhost:5000
 ```
 
+## Project Video Tour
+[Watch on YouTube](https://youtu.be/fjmK9irpJWk)
+
 ### Key Instructions:
 
 - Embed the code inside `<head>` element tag in the target website page.
@@ -33,7 +34,6 @@ $ npm run dev
 
 ```
 <script>
-
   window.onload = () => {
      !function () {
       var t = window.contxt = {};
@@ -59,3 +59,19 @@ $ npm run dev
   }
 </script>
 ```
+
+### Dependencies and their functions
+- `bcryptjs` : Enables storing of passwords as hashed pa passwords instead of plain text
+- `connect-flash` : Flash is a special area of the session used for storing messages. Messages are written to the flash and cleared after being displayed to the user. So, Connect-flash module for Node.js allows the developers to send a message whenever a user is redirecting to a specified web-page.
+- `connect-mongo` : Creates a connection to a MongoDB instance and returns the reference to the database.
+- `cors` : CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS(Cross Origin Resource Sharing) with various options.
+- `ejs` : EJS(Effective Javascript) is a simple templating language that lets you generate HTML markup with plain JavaScript.
+- `express` : Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+- `express-ejs-layouts` : Layout support for ejs in express.
+- `express-session` : an HTTP server-side framework used to create and manage a session middleware.
+- `mongoose` : Mongoose provides a straight-forward, schema-based solution to model your application data.
+- `multer` : Multer is a node.js middleware for handling multipart/form-data , which is primarily used for uploading files.
+- `passport` : Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based webpages.
+- `passport-local` : This module lets you authenticate using a username and password in your Node.js applications.
+- `nodemon` : The nodemon Module is a module that develop node.js based applications by automatically restarting the node application when file changes.
+
