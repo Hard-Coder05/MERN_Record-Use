@@ -28,7 +28,7 @@ $ npm run dev
 ### Key Instructions:
 
 - Embed the code inside `<head>` element tag in the target website page.
-- Currently the video URL in the embed code won't work as it is not a public url (it is a blob url). Therefore, Please replace the video link with any other public link availble for openAPIs (Ex: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4) or you can use the pre-recorded video stored here in `public/videos/video1` (URL: http://localhost:5000/public/videos/video1.mp4)
+- Currently the video URL in the embed code won't work as it is not a public url (it is a blob url). Therefore, Please replace the video link with any other public link availble for openAPIs (Ex: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4) or you can use the pre-recorded video as well by recording and storing here in `public/videos/video1` and then using this as URL(URL: http://localhost:5000/public/videos/video1.mp4)
 
 ### Code - Template to be embed
 
